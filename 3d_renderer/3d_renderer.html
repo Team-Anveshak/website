@@ -10,6 +10,9 @@
 
 		<script src="js/three.js"></script>
 		<script src="js/loaders/OBJLoader.js"></script>
+		<script src="js/WebGL.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+
 
 		<script>
 
@@ -23,6 +26,7 @@
 			var windowHalfY = window.innerHeight / 2;
 
 			var object;
+			var pivot = new THREE.Object3D();
 
 			init();
 			animate();
@@ -34,11 +38,18 @@
 				document.body.appendChild( container );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
-				camera.position.z = 400;
+				// camera.position.set(100,100,0);
+				// camera.lookAt(0,0,0);
+				camera.position.z =350;
+				camera.position.x =-50;
+				camera.position.y =-150;
+				// camera.lookAt(-50,-50,0);
 
-
+				// scene
 
 				scene = new THREE.Scene();
+				clock = new THREE.Clock();
+
 
 				var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
 				scene.add( ambientLight );
@@ -49,6 +60,15 @@
 
 
 
+				// mesh.position.x = -50;
+				//
+				// var pivot = new THREE.Object3D();
+				// pivot.add( mesh );
+				//
+				// scene.add( pivot );
+
+				// manager
+
 				function loadModel() {
 
 					object.traverse( function ( child ) {
@@ -57,10 +77,23 @@
 
 					} );
 
-					object.position.y = - 95;
+          // object.applyMatrix( new THREE.Matrix4().makeTranslation( 500, 0, 0 ) );
+					// mesh.object.translate(50, 0, 0 );
+
+					object.position.y =0;
+					object.position.x =-50;
+					object.position.z =0;
+					object.rotation.x =-1.5;
+
+					// object.position.set(-5,0,0);
+					pivot.add(object);
+
+					pivot.rotation.y  = 1;
+
 					scene.add( object );
 
 				}
+
 
 				var manager = new THREE.LoadingManager( loadModel );
 
@@ -133,7 +166,7 @@
 
 			}
 
-			
+
 
 			function animate() {
 
@@ -144,11 +177,20 @@
 
 			function render() {
 
-				camera.position.x += ( mouseX - camera.position.x ) * .05;
-				camera.position.y += ( - mouseY - camera.position.y ) * .05;
+				var delta = clock.getDelta();
 
-				camera.lookAt( scene.position );
+				// camera.position.x += ( mouseX - camera.position.x ) * .05;
+				// camera.position.y += ( - mouseY - camera.position.y ) * .05;
+				//
+				// camera.lookAt( scene.position );
 
+				// pivot.rotation.z += delta * 0.5;
+				object.rotation.z += delta * 0.5;
+				// if ( rover !== undefined ) {
+				//
+				// 	rover.rotation.z += delta * 0.5;
+				//
+				// }
 				renderer.render( scene, camera );
 
 			}
