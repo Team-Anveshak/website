@@ -11,7 +11,7 @@
   animation-timing-function: steps(144);
   width: 930px;
   height: 550px;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 .shapeshifter.play {
   animation-name: play144;
