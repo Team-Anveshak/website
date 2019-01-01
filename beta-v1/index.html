@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Team Anveshak</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+ <script src="jquery.scrollify.js"></script>
+ <script src="index.js"></script>
+ <link rel="stylesheet" href="index.css">
+ <script src="video_carousel.js"></script>
+ <link rel="stylesheet" href="video_carousel.css">
+ <!-- <script src="sliderengine/jquery.js"></script> -->
+ <script src="sliderengine/amazingslider.js"></script>
+ <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
+ <script src="sliderengine/initslider-1.js"></script>
+ <script src="members.js"></script>
+ <link rel="stylesheet" href="members.css">
+ <script type="text/javascript" src="annimg.js"></script>
+ <link rel="stylesheet" href="annimg.css">
+ <script>
+ // var top1 = $('#section1').offset().top;
+ // var top2 = $('#section2').offset().top;
+ // var top3 = $('#section3').offset().top;
+ $(function() {
+   $(".pass").css({"height":$(window).height()});
+   $.scrollify({
+     section:".pass"
+   });
+ });
+ window.addEventListener('resize',reloader);
+ $(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+   // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+$(window).scroll(function() {
+  $(document).ready(function(){
+var top1 = $('#introvideo').offset().top;
+var top2 = $('#section1').offset().top;
+var top3 = $('#section2').offset().top;
+var top4 = $('#section3').offset().top;
+var top5 = $('#section4').offset().top;
+var top6 = $('#section5').offset().top;
+
+    console.log(top2);
+
+
+    var scrollPos = $(document).scrollTop()+50;
+      console.log(scrollPos);
+    if (scrollPos >= top1 && scrollPos < top2) {
+      $('.navbar').css('background','rgba(0,0,0,0.5)');
+    } else if (scrollPos >= top2 && scrollPos < top3) {
+      $('.navbar').css('background','rgba(238,104,42,0.5)');
+    } else if (scrollPos >= top3 && scrollPos < top4) {
+      $('.navbar').css('background','rgba(100,0,0,0.5)');
+    }else if (scrollPos >= top4 && scrollPos < top5) {
+      $('.navbar').css('background','rgba(100,50,0,0.5)');
+    }else if (scrollPos >= top5 && scrollPos < top6) {
+      $('.navbar').css('background','rgba(0,100,0,0.5)');
+    }else if (scrollPos >= top6) {
+      $('.navbar').css('background','rgba(0,0,100,0.5)');
+    }
+});
+  $(".slideanim").each(function(){
+    var pos = $(this).offset().top;
+
+    var winTop = $(window).scrollTop();
+    if (pos < winTop + 600) {
+      $(this).addClass("slide");
+    }
+  });
+});
+</script>
+<!-- <script>
+var top1 = $('#section1').offset().top;
+var top2 = $('#section2').offset().top;
+var top3 = $('#section3').offset().top;
+
+$(window).scroll(function() {
+  console.log("hey");
+  var scrollPos = $(document).scrollTop();
+  if (scrollPos >= top1 && scrollPos < top2) {
+    $('.navbar').css('background-color', '#f00');
+  } else if (scrollPos >= top2 && scrollPos < top3) {
+    $('.navbar').css('background-color', '#0f0');
+  } else if (scrollPos >= top3) {
+    $('.navbar').css('background-color', '#00f');
+  }
+});
+ </script> -->
+ <style media="screen">
+ body {
+   font: 400 15px Lato, sans-serif;
+   line-height: 1.8;
+   color: #818181;
+ }
+ </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#introvideo">HOME</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#section2">ABOUT</a></li>
+        <li><a href="#section3">MEMBERS</a></li>
+        <li><a href="#section4">VIDEO</a></li>
+        <li><a href="#section5">SECTION5</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="introtext">
+  <div class="row" id="logorow">
+    <div class="col-sm-2 col-sm-offset-1">
+        <img id="logo" src="image/logo.png" alt="team logo"/>
+    </div>
+    <div class="col-sm-9">
+        <h1>TEAM ANVESHAK</h1>
+    </div>
+  </div>
+  <!-- <img id="logo" src="image/logo.png" alt="team logo"/> -->
+  <!-- <h1>TEAM ANVESHAK</h1> -->
+</div>
+<video autoplay muted loop id="introvideo" class="pass">
+  <source src="image/a.mp4" type="video/mp4">
+</video>
+<div  class="imagebackpara1"></div>
+<div id="section1" class="container-fluid pass">
+</div>
+<div  class="imagebackpara2"></div>
+<div id="section2" class="container-fluid pass">
+</div>
+<div  class="imagebackpara3"></div>
+<div id="section3" class="container-fluid pass">
+
+    <div class="row" id='main_h'>
+      <div class="col-xs-12 text-center">
+        <h1 id="header1" style="color:black;">The Team</h1>
+      </div>
+    </div>
+
+      <img src="image/team.jpg" alt="Members" usemap = "#members" class="img-rounded image img-responsive annotated " />
+
+    <!-- <div class="row">
+    <div class="col-sm-4 col-sm-offset-4"> -->
+      <div class="containermy" onclick="retract()">
+        <div class="row" id="rowproxy">
+          <div class="col-xs-6 ">
+            <img src="image/pic1.jpg" alt="Member"  class="image-profile img-rounded"  Id="imageid"/>
+          </div>
+          <div class="col-xs-6 text-center">
+            <h2 class="text-center" id="memname"></h2>
+            <p class="text-center" id="memdesp"></p>
+          </div>
+        </div>
+        <!-- <img src="image/pic1.jpg" alt="Member"  class="image-profile"  Id="imageid"/> -->
+      <!-- <div class="text-mini-containermy"> -->
+        <!-- <h1 class="name">My Name </h1>
+        <p class="name">Hey hello there</p> -->
+        <!-- <img src="pic2.jpg" alt="Member"  class="image1" Id="imageid" /> -->
+      </div>
+
+    <!-- </div>
+
+    </div> -->
+
+
+      <map name="members">
+        <div class="tooltip">Hover over me
+    <span class="tooltiptext">Tooltip text</span>
+  </div>
+        <area href="#1" shape="rect" title="Hooray!"
+            coords="0419,0824,0732,1193"
+            onclick="project('1')"
+             class="img_por"/>
+
+        <area  href="#2" shape="rect" title=" Hi I am Tarun Click to know more about me"
+            coords="2938,0799,3296,1269"
+            onclick="project('2')"
+             class="img_por"/>
+        </map>
+
+    </div>
+
+    <script>
+    // reloader();
+    // window.addEventListener("resize",reloader);
+    // sizer()
+    printer();
+    aI.init();
+    attach();
+      // printer()
+
+    </script>
+
+</div>
+
+<div  class="imagebackpara4"></div>
+  <div Id="section4" class="container-fluid pass">
+     <!-- <div class = "blur"></div> -->
+    <div class="row test">
+      <div class="col-xs-12 text-center">
+        <h1 id="header1"style="color:white;">Videos</h1>
+      </div>
+    </div>
+    <div class="margin">
+    <div id="amazingslider-wrapper-1" class="slideanim" style="display:block;position:relative;max-width:900px;margin:0px auto 56px;">
+        <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+            <ul class="amazingslider-slides" style="display:none;">
+                <li><a href="https://www.youtube.com/embed/I9ba-WmVWco?v=I9ba-WmVWco&start_radio=1&list=RDI9ba-WmVWco" class="html5lightbox"><img src="images/I9ba-WmVWco.jpg" alt="V1"  title="V1" data-description="Vjsgfjsjgbsgb" /></a>
+                </li>
+                <li><a href="https://www.youtube.com/embed/I9ba-WmVWco?v=I9ba-WmVWco&start_radio=1&list=RDI9ba-WmVWco" class="html5lightbox"><img src="images/I9ba-WmVWco.jpg" alt="v2"  title="v2" data-description="sfsagsgsgsG" /></a>
+                </li>
+                <li><a href="https://www.youtube.com/embed/I9ba-WmVWco?v=I9ba-WmVWco&start_radio=1&list=RDI9ba-WmVWco" class="html5lightbox"><img src="images/I9ba-WmVWco.jpg" alt="v3"  title="v3" data-description="sgsgzsggzsdzsg" /></a>
+                </li>
+            </ul>
+            <ul class="amazingslider-thumbnails" style="display:none;">
+                <li><img src="images/I9ba-WmVWco-tn.jpg" alt="V1" title="V1" /></li>
+                <li><img src="images/I9ba-WmVWco-tn.jpg" alt="v2" title="v2" /></li>
+                <li><img src="images/I9ba-WmVWco-tn.jpg" alt="v3" title="v3" /></li>
+            </ul>
+        <div class="amazingslider-engine"><a href="http://amazingslider.com" title="jQuery Content Slider">jQuery Content Slider</a></div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div  class="imagebackpara5"></div>
+  <div Id="section5" class="container-fluid pass">
+    <div class="col-xs-12 text-center">
+      <h1 id="header1" style="color:white;">Our Rovers</h1>
+    </div>
+
+    <div class="row text-center slideanim">
+      <div class="col-sm-4">
+       <div class="thumbnail">
+         <video src="image/a.mp4" type="video/mp4" autoplay muted loop id ="sad1" onclick="modal('sad1')">
+             <p id="modal-desc-sad1">hfrhrfiurhfuhrefherfuh</p>
+         </video>
+         <p><strong>Caesar</strong></p>
+       </div>
+     </div>
+     <div class="col-sm-4">
+      <div class="thumbnail">
+        <!-- <img id ="sad2" src="D:/Website/website/beta-v1/image/badger.jpg" alt="badger"> -->
+        <video src="image/a.mp4" type="video/mp4" autoplay muted loop id ="sad2" onclick="modal('sad2')">
+            <p id="modal-desc-sad2">hfrhrfiurhfuhrefherfuh</p>
+        </video>
+        <div id="tra">
+          <p ><strong>Badger</strong></p>
+          <p>addddddddddddddddddddddddddddddddddddddddddddsdadsa</p>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-4">
+     <div class="thumbnail">
+       <video src="image/a.mp4" type="video/mp4" autoplay muted loop id ="sad3" onclick="modal('sad3')">
+           <p id="modal-desc-sad3">hfrhrfiurhfuhrefherfuh</p>
+       </video>
+       <p><strong>Aurora</strong></p>
+     </div>
+   </div>
+
+    </div>
+
+
+    <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <!-- <img class="modal-content" id="img01"> -->
+  <video autoplay muted loop class="modal-content" id="img01">
+  </video>
+  <div id="caption">  </div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img1 = document.getElementById('sad1');
+var img2 = document.getElementById('sad2');
+var img3 = document.getElementById('sad3');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img1.onclick = function(){
+  var desc = document.getElementById("modal-desc-sad1")
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = desc.innerHTML;
+}
+img2.onclick = function(){
+  var desc = document.getElementById("modal-desc-sad2")
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = desc.innerHTML;
+}
+img3.onclick = function(){
+  var desc = document.getElementById("modal-desc-sad3")
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = desc.innerHTML;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+
+
+  </div>
+
+
+</body>
+</html>
